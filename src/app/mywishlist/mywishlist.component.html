@@ -1,0 +1,70 @@
+
+<div class="container">
+  <div class="row col-md-12 courseDetails">
+
+    <div class="col-md-6">
+  <p class="courseDetailsPara">
+    Discover Latest Courses on React
+  </p>
+    </div>
+    <div class="col-md-6" style="text-align: right;">
+    <img src="\assets\Mask Group 1.png" style="height: 65px;width:auto">
+  </div>
+  </div>
+
+
+  <div class="row col-md-12">
+    <div class="row col-md-8">
+
+    <div class="col-md-9" style="display: inline;"><label>My Wishlist</label></div>
+  <div class="col-md-3" style="display: inline;">
+    <select>
+      <option>Course Price</option>
+        <option *ngFor="let item of this.dataList;let i = index" value="{{item.code}}" [selected]="i === 0">
+          {{item.name}}
+        </option>
+      </select>
+  </div>
+  </div>
+  </div>
+
+  </div>
+
+
+
+<div class="card">
+  <div class="row">
+      <div class="col-md-8 cart">
+
+          <div class="row border-top border-bottom">
+              <div class="row main align-items-center">
+                  <div class="col-1"><img class="img-fluid" src="\assets\images.png"></div>
+                  <div class="col-3">impedit velit eaque vero ut quod
+                    <div class="courseTitle">
+                      <div class="btn btn-primary btn-sm courseBtn" role="button"> React</div>
+                      <div class="btn btn-primary btn-sm courseBtn" role="button"> React</div>
+                    </div>
+                  </div>
+                  <div class="col-2 courseAuthor">Velma Mohr</div>
+                  <div class="col-2">Rs 564.00/- </div>
+                  <div class="col-1 actualPrice"><del>Rs 789.00/-</del></div>
+                  <div class="col-3"><a href="#" class="btn btn-primary btn-lg" role="button">ADD TO CART</a><span style="display: inline;padding-left: 10px;"><i style="font-size:24px" class="fa">&#xf014;</i></span><span style="display: inline;padding-left: 10px;"> ></span></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 summary">
+          <div>
+              <h5><b>YOUR CART DETAILS</b></h5>
+          </div>
+          <hr>
+          <div class="row">
+              <div class="col" style="padding-left:0;">Your cart is empty right now. Please add courses in the cart from the list</div>
+          </div>
+          <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+              <div class="col">Total Cart Value</div>
+              <div class="col text-right">RS 0/-</div>
+      </div>
+  </div>
+</div>
+
+</div>

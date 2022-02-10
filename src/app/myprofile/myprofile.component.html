@@ -1,0 +1,186 @@
+
+<div class="container">
+<div class="row courseDetails">
+ <div class="col-md-6">
+  <p class="courseDetailsPara">
+    My Profile
+  </p>
+    </div>
+    <div class="col-md-6" style="text-align: right;">
+    <img src="\assets\Mask Group 1.png" style="height: 65px;width:auto">
+  </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-3">
+      <img src="\assets\Mask Group 2.png" >
+    </div>
+    <div class="col-md-9 myprofileForm">
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+<div class="row">
+        <div class="form-group col-md-4">
+          <label for="displayname">Display Name</label>
+          <input type="text" formControlName="displayname" class="form-control" placeholder="Display Name" [ngClass]="{ 'is-invalid': submitted && f.displayname.errors }" />
+          <div *ngIf="submitted && f.displayname.errors" class="invalid-feedback">
+              <div *ngIf="f.displayname.errors.required">Display Name is required</div>
+          </div>
+      </div>
+
+          <div class="form-group col-md-4">
+              <label for="firstName">First Name</label>
+              <input type="text" formControlName="firstName" class="form-control" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+              <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                  <div *ngIf="f.firstName.errors.required">First Name is required</div>
+              </div>
+          </div>
+
+          <div class="form-group col-md-4">
+              <label for="lastName">Last Name</label>
+              <input type="text" formControlName="lastName" class="form-control" placeholder="Enter Last Name" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+              <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                  <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8 form-group">
+              <label for="aboutyourself">About Yourself</label>
+              <textarea class="form-control" cols="2" rows="5" formControlName="aboutyourself"  placeholder="Enter about yourself" [ngClass]="{ 'is-invalid': submitted && f.aboutyourself.errors }"></textarea>
+             <div *ngIf="submitted && f.aboutyourself.errors" class="invalid-feedback">
+                  <div *ngIf="f.aboutyourself.errors.required">About Yourself is required</div>
+              </div>
+          </div>
+          </div>
+          <div class="row">
+            <label for="areaofinterest">Your Area of Interest</label>
+          <div class="form-check">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDesigner"
+            />
+            <label class="form-check-label" for="flexCheckDesigner">
+              Designer
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDeveloper"
+            />
+            <label class="form-check-label" for="flexCheckDeveloper">
+              Developer
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckManager"
+            />
+            <label class="form-check-label" for="flexCheckManager">
+              Project Manager
+            </label>
+          </div>
+
+          <div class="form-check">
+            <input
+              mdbCheckbox
+              class="form-check-input"
+              type="checkbox"
+              value=""
+              id="flexCheckDefault"
+            />
+            <label class="form-check-label" for="flexCheckDefault">
+              Sales
+            </label>
+          </div>
+        </div>
+
+        <div class="row" style="padding-top: 15px;">
+          <label for="areaofinterest">Are you a student or Professional</label>
+          <div class="form-group">
+
+            <div>
+              <input id="student" type="radio" value="student" name="student">
+              <label for="student" style="padding-left: 5px;"> Student</label>
+           </div>
+
+           <div>
+              <input id="professional" type="radio" value="professional" name="professional">
+              <label for="professional" style="padding-left: 5px;"> Professional</label>
+           </div>
+
+           <!-- <div *ngIf="f.persontype.touched && f.persontype.invalid" class="alert alert-danger">
+                <div *ngIf="f.persontype.errors.required">Student or Professional is required.</div>
+            </div>-->
+        </div>
+        </div>
+
+<div class="experienceDetails">
+  <label> How much of experience you have?</label>
+ <div class="form-group">
+  <div class="col-md-3 experience">
+    <input id="fiveyear" type="radio" value="fiveyear" name="fiveyear">
+    <label for="fiveyear" style="padding-left: 5px;"> 0-5</label>
+ </div>
+
+ <div class="col-md-3 experience">
+    <input id="fivetoten" type="radio" value="fivetoten" name="fivetoten" >
+    <label for="fivetoten" style="padding-left: 5px;">5-10</label>
+ </div>
+ <div class="col-md-3 experience">
+  <input id="tenabove" type="radio" value="tenabove" name="tenabove" >
+  <label for="tenabove" style="padding-left: 5px;">10 & Above</label>
+</div>
+</div>
+<label>What is your expertise</label>
+<div class="form-group">
+<div class="col-md-3 experience">
+  <input id="java" type="radio" value="java" name="java" >
+  <label for="java" style="padding-left: 5px;"> Java</label>
+</div>
+
+<div class="col-md-3 experience">
+  <input id="react" type="radio" value="react" name="react">
+  <label for="react" style="padding-left: 5px;">React</label>
+</div>
+<div class="col-md-3 experience">
+<input id="backend" type="radio" value="backend" name="backend">
+<label for="backend" style="padding-left: 5px;">Backend</label>
+</div>
+ </div>
+
+ <div class="form-group col-md-6">
+  <label for="rolename">Mention your role</label>
+  <input type="text" formControlName="rolename" class="form-control" placeholder="Enter your role" [ngClass]="{'is-invalid': submitted && f.rolename.errors }" />
+  <div *ngIf="submitted && f.rolename.errors" class="invalid-feedback">
+      <div *ngIf="f.rolename.errors.required">Your role is required</div>
+  </div>
+</div>
+
+
+
+</div>
+          <div class="form-group saveButton">
+              <button [disabled]="loading" class="btn btn-primary">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Save
+              </button>
+          </div>
+      </form>
+  </div>
+</div>
+
+
+</div>

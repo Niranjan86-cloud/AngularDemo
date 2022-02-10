@@ -1,0 +1,106 @@
+
+<div class="container">
+<div class="row col-md-12 courseDetails">
+
+  <div class="col-md-6">
+<p class="courseDetailsPara">
+  Discover Latest Courses on React
+</p>
+  </div>
+  <div class="col-md-6" style="text-align:right;">
+  <img src="\assets\Mask Group 1.png" style="height: 65px;width:auto">
+</div>
+</div>
+
+<div class="row col-md-12">
+  <div class="row col-md-8">
+
+  <div class="col-md-9" style="display: inline;"><label>All Courses</label></div>
+<div class="col-md-3" style="display: inline;">
+  <select>
+    <option>Course Price</option>
+      <option *ngFor="let item of this.dataList;let i = index" value="{{item.code}}" [selected]="i === 0">
+        {{item.name}}
+      </option>
+    </select>
+</div>
+</div>
+<div class="col-md-4">
+  <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search here">
+
+  </div>
+
+</div>
+
+</div>
+
+<div class="card">
+  <div class="row">
+      <div class="col-md-8 cart">
+
+          <div class="row border-top border-bottom">
+              <div class="row main align-items-center" *ngFor="let data of sampleSuggestionsArray | filter:searchText; let i = index;">
+                  <div class="col-1"><img class="img-fluid" src="\assets\images.png"></div>
+                  <div class="col-3">{{data.title}}
+                    <div class="courseTitle">
+                      <div class="btn btn-primary btn-sm courseBtn" role="button"> React</div>
+                      <div class="btn btn-primary btn-sm courseBtn" role="button"> React</div>
+                    </div>
+                  </div>
+                  <div class="col-2 courseAuthor">{{data.author}}</div>
+                  <div class="col-2">Rs {{data.discounted_price}}/- </div>
+                  <div class="col-2 actualPrice"><del>Rs {{data.actual_price}}/-</del></div>
+                  <div class="col-2"><a class="btn btn-primary btn-lg" role="button" (click)="addToCart(data)">ADD TO CART</a><span style="display: inline;padding-left: 10px;"> ></span></div>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4 summary">
+          <div>
+              <h5><b>YOUR CART DETAILS</b></h5>
+          </div>
+          <hr>
+          <div class="col-12 " *ngFor="let item of items; let i = index ">
+            <div class="row" id="{{ item.id}}">
+              <div class="col-6">
+                <div class=" ">
+                    {{ item.title }}
+                    <small>( {{ item.discounted_price | currency }} ) </small>
+                </div>
+
+              </div>
+              <div class="col-2 p-0">
+                  <input
+                  [(ngModel)]="item.qtyTotal"
+                  [ngModelOptions]="{standalone: true}"
+                  min="1"
+                  type="number"
+                  value="{{ item.qtyTotal }}"
+                  name=""
+                  class="form-control"
+                  (change)="changeSubtotal(item ,i)"
+                />
+              </div>
+              <div class="col-2 pr-0">
+                    <div #subTotalWrap>{{ item.discounted_price | currency }}</div>
+              </div>
+              <div class="col-1 pl-0">
+                    <button class="btn btn-secondary" (click)="removeFromCart(item)"> x</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 ">
+                <hr />
+            <div>
+                  Order Total:
+                  <span class="font-weight-bold  ">{{total | currency}}</span><hr>
+                  <button class="btn btn-primary  " (click)="clearCart(items)"> Clear Items</button>
+            </div>
+          </div>
+  </div>
+</div>
+
+</div>
+
+
+
